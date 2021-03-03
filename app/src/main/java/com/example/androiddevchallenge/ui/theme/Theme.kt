@@ -20,6 +20,8 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 
 private val DarkColorPalette = darkColors(
     primary = purple200,
@@ -28,22 +30,34 @@ private val DarkColorPalette = darkColors(
 )
 
 private val LightColorPalette = lightColors(
-    primary = purple500,
-    primaryVariant = purple700,
-    secondary = teal200
+//    primary = purple500,
+//    primaryVariant = purple700,
+//    secondary = teal200
+    primary = gray300,
+    primaryVariant = gray500,
+    secondary = red700,
 
-        /* Other default colors to override
-    background = Color.White,
-    surface = Color.White,
-    onPrimary = Color.White,
-    onSecondary = Color.Black,
-    onBackground = Color.Black,
-    onSurface = Color.Black,
-    */
+    onPrimary = Color.DarkGray
+
+    /* Other default colors to override
+background = Color.White,
+surface = Color.White,
+onPrimary = Color.White,
+onSecondary = Color.Black,
+onBackground = Color.Black,
+onSurface = Color.Black,
+*/
+)
+
+val verticalGradientBrush = Brush.verticalGradient(
+    colors = listOf(
+        Color(0x00000000),
+        Color(0xA0000000)
+    )
 )
 
 @Composable
-fun MyTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable() () -> Unit) {
+fun MyTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
     val colors = if (darkTheme) {
         DarkColorPalette
     } else {
